@@ -1,17 +1,18 @@
 package zooAnimales;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Pez extends Animal {
-    private static List<Pez> listado = new ArrayList<Pez>();
-    public static int salmones;
-    public static int bacalaos;
+    private static ArrayList<Pez> listado = new ArrayList<Pez>();
+    public static int salmones, bacalaos;
     private String colorEscamas;
     private int cantidadAletas;
 
     public Pez() {
-        this(null, 0, null, null, null, 0);
+        super(null, 0, null, null);
+        this.colorEscamas = null;
+        this.cantidadAletas = 0;
+        listado.add(this);
     }
 
     public Pez(String nombre, int edad, String habitat, String genero, String colorEscamas, int cantidadAletas) {
@@ -19,10 +20,6 @@ public class Pez extends Animal {
         this.colorEscamas = colorEscamas;
         this.cantidadAletas = cantidadAletas;
         listado.add(this);
-    }
-
-    public String movimiento() {
-        return "nadar";
     }
 
     public String getColorEscamas() {
@@ -41,32 +38,13 @@ public class Pez extends Animal {
         this.cantidadAletas = cantidadAletas;
     }
 
-    public static List<Pez> getListado() {
-        return listado;
-    }
-
-    public static void setListado(List<Pez> listado) {
-        Pez.listado = listado;
-    }
-
-    public static int getSalmones() {
-        return salmones;
-    }
-
-    public static void setSalmones(int salmones) {
-        Pez.salmones = salmones;
-    }
-
-    public static int getBacalaos() {
-        return bacalaos;
-    }
-
-    public static void setBacalaos(int bacalaos) {
-        Pez.bacalaos = bacalaos;
-    }
-
     public static int cantidadPeces() {
         return listado.size();
+    }
+
+    @Override
+    public String movimiento() {
+        return "nadar";
     }
 
     public static Pez crearSalmon(String nombre, int edad, String genero) {
@@ -77,6 +55,6 @@ public class Pez extends Animal {
     public static Pez crearBacalao(String nombre, int edad, String genero) {
         bacalaos++;
         return new Pez(nombre, edad, "oceano", genero, "gris", 6);
-    }
 
+    }
 }

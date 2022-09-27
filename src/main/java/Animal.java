@@ -15,19 +15,11 @@ public class Animal {
     }
 
     public Animal(String nombre, int edad, String habitat, String genero) {
+        this.totalAnimales++;
         this.nombre = nombre;
         this.edad = edad;
         this.habitat = habitat;
         this.genero = genero;
-        totalAnimales++;
-    }
-
-    public static int getTotalAnimales() {
-        return totalAnimales;
-    }
-
-    public static void setTotalAnimales(int totalAnimales) {
-        Animal.totalAnimales = totalAnimales;
     }
 
     public String getNombre() {
@@ -62,32 +54,25 @@ public class Animal {
         this.genero = genero;
     }
 
-    public Zona getZona() {
-        return zona;
-    }
-
     public String movimiento() {
         return "desplazarse";
     }
 
     public static String totalPorTipo() {
-        return "Mamiferos: " + Mamifero.cantidadMamiferos() + "\n" +
-                "Aves: " + Ave.cantidadAves() + "\n" +
-                "Reptiles: " + Reptil.cantidadReptiles() + "\n" +
-                "Peces: " + Pez.cantidadPeces() + "\n" +
-                "Anfibios: " + Anfibio.cantidadAnfibios();
+        return "Mamiferos: " + Mamifero.cantidadMamiferos() + "\nAves: " + Ave.cantidadAves() +
+                "\nReptiles: " + Reptil.cantidadReptiles() + "\nPeces: " + Pez.cantidadPeces() +
+                "\nAnfibios: " + Anfibio.cantidadAnfibios();
     }
 
+    @Override
     public String toString() {
-        String str = "Mi nombre es " + nombre + ", tengo una edad de " + edad + ", habito en " + habitat
-                + " y mi genero es "
-                + genero;
-
-        if (this.zona != null) {
-            str += ", la zona en la que me ubico es " + zona.getNombre() + ", en el "
-                    + zona.getZoo().getNombre();
+        if (this.zona == null) {
+            return "Mi nombre es " + this.nombre + ", tengo una edad de " + this.edad + ", habito en " + this.habitat +
+                    " y mi genero es " + this.genero;
+        } else {
+            return "Mi nombre es " + this.nombre + ", tengo una edad de " + this.edad + ", habito en " + this.habitat +
+                    " y mi genero es " + this.genero + ", la zona en la que me ubico es " + this.zona.getNombre() +
+                    ", en el " + this.zona.getZoo().getNombre();
         }
-
-        return str;
     }
 }
