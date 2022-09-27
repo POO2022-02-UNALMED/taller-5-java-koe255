@@ -1,21 +1,24 @@
 package zooAnimales;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pez extends Animal {
-    private static Pez[] listado;
+    private static List<Pez> listado = new ArrayList<Pez>();
     public static int salmones;
     public static int bacalaos;
     private String colorEscamas;
     private int cantidadAletas;
 
     public Pez() {
-        listado = new Pez[1];
+        listado.add(this);
     }
 
     public Pez(String nombre, int edad, String habitat, String genero, String colorEscamas, int cantidadAletas) {
         super(nombre, edad, habitat, genero);
         this.colorEscamas = colorEscamas;
         this.cantidadAletas = cantidadAletas;
-        listado = new Pez[1];
+        listado.add(this);
     }
 
     public String movimiento() {
@@ -38,11 +41,11 @@ public class Pez extends Animal {
         this.cantidadAletas = cantidadAletas;
     }
 
-    public static Pez[] getListado() {
+    public static List<Pez> getListado() {
         return listado;
     }
 
-    public static void setListado(Pez[] listado) {
+    public static void setListado(List<Pez> listado) {
         Pez.listado = listado;
     }
 
@@ -63,7 +66,7 @@ public class Pez extends Animal {
     }
 
     public static int cantidadPeces() {
-        return listado.length;
+        return listado.size();
     }
 
     public static Pez crearSalmon(String nombre, int edad, String genero) {
