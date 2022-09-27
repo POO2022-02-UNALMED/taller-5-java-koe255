@@ -11,6 +11,7 @@ public class Zona {
     private List<Animal> animales = new ArrayList<Animal>();
 
     public Zona() {
+        this(null, null);
     }
 
     public Zona(String nombre, Zoologico zoo) {

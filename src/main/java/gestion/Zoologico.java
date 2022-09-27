@@ -8,6 +8,7 @@ public class Zoologico {
     private List<Zona> zonas;
 
     public Zoologico() {
+        this(null, null);
     }
 
     public Zoologico(String nombre, String ubicacion) {
