@@ -11,7 +11,7 @@ public class Animal {
     private Zona zona;
 
     public Animal() {
-        totalAnimales++;
+        this(null, 0, null, null);
     }
 
     public Animal(String nombre, int edad, String habitat, String genero) {
